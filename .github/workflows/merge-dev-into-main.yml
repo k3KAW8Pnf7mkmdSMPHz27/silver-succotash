@@ -1,0 +1,17 @@
+name: Merge `dev` into `master`
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 5 * * 5"
+
+jobs:
+  merge-dev:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: repo-sync/pull-request@v2.9
+        with:
+          source_branch: "dev"
+          destination_branch: "main"
+          pr_assignee: "k3KAW8Pnf7mkmdSMPHz27"
+          pr_reviewer: "k3KAW8Pnf7mkmdSMPHz27"
